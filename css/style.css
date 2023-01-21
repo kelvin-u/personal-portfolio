@@ -308,6 +308,16 @@ a.active {
   z-index: 1;
 }
 
+.resume {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.resume:hover {
+  color: #808588;
+}
 /* experience section
 ==================================================*/
 
