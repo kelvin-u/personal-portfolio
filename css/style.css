@@ -301,10 +301,10 @@ a.active {
 .about-border {
   position: absolute;
   border: 10px solid #f3f3f3;
-  width: 400px;
-  height: 400px;
+  width: 375px;
+  height: 375px;
   top: 40px;
-  left: 50px;
+  left: 25px;
   z-index: 1;
 }
 
@@ -631,104 +631,6 @@ a.active {
 #contact {
   padding: 100px 0;
   background: #f3f3f3;
-}
-
-#contact-form input,
-#contact-form textarea {
-  height: 50px;
-  margin-bottom: 10px;
-  border-radius: 0;
-}
-
-#contact-form label {
-  display: block;
-  margin-bottom: 0.2em;
-  font-size: 13px;
-  line-height: 13px;
-  font-size: 1.3rem;
-  line-height: 1.3rem;
-  color: #000;
-}
-
-#contact-form label.error {
-  margin-top: 10px;
-  margin-bottom: 1em;
-  font-size: 12px;
-  line-height: 12px;
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  color: #d33e43;
-  margin-left: 10px;
-}
-
-#contact-form input[type="text"].error,
-#contact-form input[type="password"].error,
-#contact-form input[type="date"].error,
-#contact-form input[type="datetime"].error,
-#contact-form input[type="datetime-local"].error,
-#contact-form input[type="month"].error,
-#contact-form input[type="week"].error,
-#contact-form input[type="email"].error,
-#contact-form input[type="number"].error,
-#contact-form input[type="search"].error,
-#contact-form input[type="tel"].error,
-#contact-form input[type="time"].error,
-#contact-form input[type="url"].error,
-#contact-form textarea.error {
-  border-color: #d33e43;
-}
-
-textarea {
-  resize: none;
-}
-
-fieldset {
-  border: 0px;
-  margin: 0;
-  padding: 0;
-}
-
-.required {
-  color: #e9266d;
-}
-
-#success,
-#error {
-  display: none;
-}
-
-#success p,
-#error p {
-  display: block;
-}
-
-#success p {
-  color: #425bb5;
-  font-size: 15px;
-  text-align: center;
-  padding: 10px;
-  border: 2px solid #425bb5;
-  margin-top: 10px;
-}
-
-#error p {
-  color: #d33e43;
-  font-size: 15px;
-  text-align: center;
-  padding: 10px;
-  border: 2px solid #d33e43;
-  margin-top: 10px;
-}
-
-#submit {
-  background-color: #425bb5;
-  color: #fff;
-  padding: 10px 40px;
-  border-radius: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-  width: 100%;
 }
 
 .social {
