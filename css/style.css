@@ -301,10 +301,10 @@ a.active {
 .about-border {
   position: absolute;
   border: 10px solid #f3f3f3;
-  width: 375px;
-  height: 375px;
+  width: 340px;
+  height: 340px;
   top: 35px;
-  left: 20px;
+  left: 10px;
   z-index: 1;
 }
 
