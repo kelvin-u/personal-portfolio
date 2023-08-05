@@ -241,7 +241,7 @@ nav li a {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #444;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
 }
 
@@ -308,12 +308,7 @@ a.active {
   z-index: 1;
 }
 
-.resume {
-  color: black;
-  font-family: "Open Sans", sans-serif;
-  font-size: medium;
-  font-weight: 600;
-}
+
 
 .resume:hover {
   color: #808588;
@@ -690,11 +685,30 @@ a.active {
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 505px) {
   nav li {
-    margin: 6px;
+    margin: 4px;
   }
   nav li a {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
+
+@media (max-width: 440px) {
+  nav li {
+    margin: 1px;
+  }
+  nav li a {
+    font-size:9px;
+  }
+}
+
+@media (max-width: 360px) {
+  nav li {
+    margin: 1px;
+  }
+  nav li a {
+    font-size:7.9px;
+  }
+}
+
