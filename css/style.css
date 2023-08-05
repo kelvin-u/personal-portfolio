@@ -685,7 +685,7 @@ a.active {
   }
 }
 
-@media (max-width: 505px) {
+@media (max-width: 520px) {
   nav li {
     margin: 4px;
   }
@@ -696,19 +696,29 @@ a.active {
 
 @media (max-width: 440px) {
   nav li {
-    margin: 1px;
+    margin: 4px;
   }
   nav li a {
     font-size:9px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 390px) {
+  nav li {
+    margin: 2.5px;
+  }
+  nav li a {
+    font-size:8.5px;
+  }
+}
+
+
+@media (max-width: 365px) {
   nav li {
     margin: 1px;
   }
   nav li a {
-    font-size:7.9px;
+    font-size:7.3px;
   }
 }
 
