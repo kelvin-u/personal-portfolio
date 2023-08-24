@@ -1,3 +1,3 @@
 # personal-portfolio
  
- this me kelvinu.ca
+ this me [https://kelvinu.ca/](https://kelvinu.ca/).
