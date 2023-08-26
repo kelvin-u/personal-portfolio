@@ -500,7 +500,7 @@ a.active {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 
-  color: #333;
+  
 }
 
 .portfolio_item .portfolio_item_hover .item_info {
