@@ -1,3 +1,3 @@
 # personal-portfolio
- 
- this me [https://kelvinu.ca/](https://kelvinu.ca/) 
+
+check out my website 🙂 [https://kelvinu.ca/](https://kelvinu.ca/)
