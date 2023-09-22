@@ -308,8 +308,6 @@ a.active {
   z-index: 1;
 }
 
-
-
 .resume:hover {
   color: #808588;
 }
@@ -499,8 +497,6 @@ a.active {
   opacity: 0;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
-
-  
 }
 
 .portfolio_item .portfolio_item_hover .item_info {
@@ -699,7 +695,7 @@ a.active {
     margin: 4px;
   }
   nav li a {
-    font-size:9px;
+    font-size: 9px;
   }
 }
 
@@ -708,17 +704,15 @@ a.active {
     margin: 2.5px;
   }
   nav li a {
-    font-size:8.5px;
+    font-size: 8.5px;
   }
 }
-
 
 @media (max-width: 365px) {
   nav li {
     margin: 1px;
   }
   nav li a {
-    font-size:7.3px;
+    font-size: 7.3px;
   }
 }
-
