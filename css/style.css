@@ -277,6 +277,103 @@ a.active {
   height: 100vh;
 }
 
+.hero-copy {
+  position: relative;
+}
+
+.hero-eyebrow {
+  margin: 0 0 18px;
+  color: #111111;
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  animation: hero-copy-reveal 0.7s ease 0.1s both;
+}
+
+.hero-name {
+  position: relative;
+  z-index: 0;
+  display: block;
+  max-width: 900px;
+  margin: 0;
+  color: #000000;
+  line-height: 1.02;
+  animation: hero-copy-reveal 0.8s ease 0.25s both;
+}
+
+.hero-line {
+  display: block;
+  font-size: 0;
+  line-height: 1.02;
+}
+
+/* Plain hero name (no per-letter hover / wave). */
+.hero-name-plain {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 88px;
+  font-weight: 400;
+  line-height: 1.02;
+  color: #000000;
+}
+
+.hero-typed-line {
+  min-height: 90px;
+}
+
+.hero-char {
+  display: inline-block;
+  font-size: 88px;
+  transform-origin: center bottom;
+  transition:
+    color 0.28s ease,
+    text-shadow 0.28s ease,
+    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-space {
+  width: 0.28em;
+}
+
+.hero-type-cursor {
+  display: inline-block;
+  margin-left: 6px;
+  color: #000000;
+  font-size: 88px;
+  line-height: 1;
+  animation: hero-type-cursor-blink 0.8s steps(2, start) infinite;
+  vertical-align: baseline;
+}
+
+.hero-type-cursor:before {
+  content: "|";
+}
+
+@keyframes hero-type-cursor-blink {
+  0%,
+  55% {
+    opacity: 1;
+  }
+  56%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-copy-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .table-cell {
   display: table-cell;
   vertical-align: middle;
@@ -292,6 +389,273 @@ a.active {
 
 #about {
   padding: 100px 0;
+}
+
+#skills {
+  padding: 80px 0 90px;
+  position: relative;
+  background: #f3f3f3;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+#skills .container {
+  position: relative;
+  z-index: 2;
+}
+
+.skills-stars {
+  display: none;
+}
+
+.skills-globe-column {
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -40px;
+}
+
+.skills-globe {
+  position: relative;
+  width: min(560px, 92vw);
+  height: min(560px, 92vw);
+  margin: 0 auto;
+  border-radius: 50%;
+  cursor: grab;
+  touch-action: none;
+}
+
+.skills-globe:active {
+  cursor: grabbing;
+}
+
+.skills-globe-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(66, 91, 181, 0.08) 0%,
+      rgba(66, 91, 181, 0.04) 45%,
+      transparent 75%
+    );
+  pointer-events: none;
+  filter: blur(8px);
+}
+
+.skills-globe-mesh {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.skills-globe-mesh line {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+}
+
+.skill-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  color: #ffffff;
+  transition: opacity 0.2s ease;
+  will-change: transform, opacity;
+  cursor: pointer;
+}
+
+/* Clean white halo behind the icon on hover — matches the light theme
+   without introducing a color glow that clashes with the brand icons. */
+.skill-node::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translate(-50%, -50%) scale(0.55);
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  transition:
+    opacity 0.22s ease,
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-node:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.skill-node i {
+  font-size: 52px;
+  line-height: 1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.16));
+  transition: filter 0.25s ease;
+}
+
+.skill-node:hover i {
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
+}
+
+.skill-tooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  padding: 6px 12px;
+  background: #1a1f3a;
+  border-radius: 999px;
+  font-family: "Lato", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #ffffff;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, -6px) scale(0.85);
+  transform-origin: top center;
+  pointer-events: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-tooltip::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  height: 8px;
+  background: #1a1f3a;
+}
+
+.skill-node:hover .skill-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.skills-globe.is-dragging .skill-tooltip {
+  opacity: 0;
+  transform: translate(-50%, -6px) scale(0.85);
+  transition: none;
+}
+
+.skills-globe.is-dragging .skill-node {
+  cursor: grabbing;
+}
+
+.skill-node[aria-label="typescript"] i {
+  color: #3178c6;
+}
+
+.skill-node[aria-label="figma"] i {
+  color: #f24e1e;
+}
+
+.skill-node[aria-label="javascript"] i {
+  color: #f7df1e;
+}
+
+.skill-node[aria-label="html5"] i {
+  color: #e34f26;
+}
+
+.skill-node[aria-label="css3"] i {
+  color: #1572b6;
+}
+
+.skill-node[aria-label="cplusplus"] i {
+  color: #00599c;
+}
+
+.skill-node[aria-label="tailwindcss"] i {
+  color: #38bdf8;
+}
+
+.skill-node[aria-label="nextjs"] i {
+  color: #ffffff;
+  background: #000;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.skill-node[aria-label="github"] i {
+  color: #181717;
+}
+
+.skill-node[aria-label="mongodb"] i {
+  color: #00684a;
+}
+
+.skill-node[aria-label="python"] i {
+  color: #3776ab;
+}
+
+.skill-node[aria-label="java"] i {
+  color: #007396;
+}
+
+.skill-node[aria-label="sql"] i {
+  color: #00758f;
+}
+
+.skill-node[aria-label="git"] i {
+  color: #f05032;
+}
+
+.skill-node[aria-label="bash"] i {
+  color: #4eaa25;
+}
+
+.skill-node[aria-label="go"] i {
+  color: #00add8;
+}
+
+.skill-node[aria-label="docker"] i {
+  color: #2496ed;
+}
+
+.skill-node[aria-label="kubernetes"] i {
+  color: #326ce5;
+}
+
+.skill-node[aria-label="aws"] i {
+  color: #232f3e;
+}
+
+.skill-node[aria-label="azure"] i {
+  color: #0078d4;
+}
+
+.skill-node[aria-label="springboot"] i {
+  color: #6db33f;
 }
 
 .about-img-div img {
@@ -316,7 +680,6 @@ a.active {
 
 #experience {
   padding: 100px 0;
-  background: #f3f3f3;
 }
 
 .experience-row {
@@ -665,6 +1028,40 @@ a.active {
 }
 
 @media (max-width: 768px) {
+  .skills-globe-column {
+    min-height: 380px;
+    margin-bottom: 45px;
+  }
+
+  .skills-globe {
+    width: min(380px, 86vw);
+    height: min(380px, 86vw);
+  }
+
+  .skill-node {
+    width: 52px;
+    height: 52px;
+  }
+
+  .skill-node i {
+    font-size: 40px;
+  }
+
+  .skill-node::after {
+    width: 72px;
+    height: 72px;
+  }
+
+  .skill-node[aria-label="nextjs"] i {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+
+  .skill-node[aria-label="vercel"] i {
+    font-size: 36px;
+  }
+
   .timeline-event-copy {
     width: 90%;
     left: 2em;
@@ -677,6 +1074,31 @@ a.active {
     font-size: 50px;
     line-height: 50px;
   }
+  .hero-copy {
+    padding-left: 0;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+  .hero-name {
+    line-height: 1.1;
+  }
+  .hero-line {
+    line-height: 1.1;
+  }
+  .hero-typed-line {
+    min-height: 58px;
+  }
+  .hero-char {
+    font-size: 52px;
+  }
+  .hero-name-plain {
+    font-size: 52px;
+  }
+  .hero-type-cursor {
+    font-size: 52px;
+  }
   #home,
   .disply-table {
     height: 600px;
@@ -687,6 +1109,30 @@ a.active {
   .portfolio .categories-grid .categories ul li {
     list-style: none;
     margin: 10px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-globe {
+    transition: none;
+  }
+
+  .hero-eyebrow,
+  .hero-name {
+    animation: none;
+  }
+
+  .hero-char {
+    transition: none;
+  }
+
+  .hero-char:hover,
+  .hero-char:hover + .hero-char,
+  .hero-char:has(+ .hero-char:hover),
+  .hero-char:hover + .hero-char + .hero-char,
+  .hero-char:has(+ .hero-char + .hero-char:hover) {
+    text-shadow: none;
+    transform: none;
   }
 }
 
