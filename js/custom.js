@@ -355,6 +355,192 @@ $(document).ready(function () {
     animateSkillsGlobe();
   }
 
+  var aboutFlipCard = document.querySelector(".about-flip-card");
+
+  if (aboutFlipCard) {
+    var aboutFlipInner = aboutFlipCard.querySelector(".about-flip-card__inner"),
+      isDraggingCard = false,
+      pointerStartX = 0,
+      dragStartAngle = 0,
+      settledAngle = 0,
+      maxMovedDistance = 0,
+      latestDeltaX = 0;
+
+    var applyAngle = function (angle) {
+      aboutFlipInner.style.transform = "rotateY(" + angle + "deg)";
+    };
+
+    var setSettledAngle = function (angle) {
+      settledAngle = angle;
+      applyAngle(angle);
+      var isFlipped = Math.abs((angle / 180) % 2) === 1;
+      aboutFlipCard.classList.toggle("is-flipped", isFlipped);
+      aboutFlipCard.setAttribute("aria-pressed", isFlipped.toString());
+    };
+
+    setSettledAngle(0);
+
+    aboutFlipCard.addEventListener("pointerdown", function (event) {
+      pointerStartX = event.clientX;
+      dragStartAngle = settledAngle;
+      maxMovedDistance = 0;
+      latestDeltaX = 0;
+      isDraggingCard = true;
+      aboutFlipCard.classList.add("is-dragging");
+      aboutFlipCard.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    });
+
+    aboutFlipCard.addEventListener("pointermove", function (event) {
+      if (!isDraggingCard) {
+        return;
+      }
+
+      latestDeltaX = event.clientX - pointerStartX;
+      maxMovedDistance = Math.max(maxMovedDistance, Math.abs(latestDeltaX));
+
+      var cardWidth = aboutFlipCard.offsetWidth || 1,
+        // Drag right -> rotate the card so the right edge swings away from
+        // viewer (positive rotateY); drag left does the opposite.
+        angle = dragStartAngle + (latestDeltaX / cardWidth) * 180;
+
+      applyAngle(angle);
+    });
+
+    var endDrag = function (event, treatAsCancel) {
+      if (!isDraggingCard) {
+        return;
+      }
+
+      isDraggingCard = false;
+      aboutFlipCard.classList.remove("is-dragging");
+
+      if (event && event.pointerId !== undefined) {
+        try {
+          aboutFlipCard.releasePointerCapture(event.pointerId);
+        } catch (e) {
+          // ignore — capture may already be released
+        }
+      }
+
+      if (treatAsCancel) {
+        setSettledAngle(dragStartAngle);
+        return;
+      }
+
+      var cardWidth = aboutFlipCard.offsetWidth || 1,
+        threshold = cardWidth * 0.25,
+        treatAsTap = maxMovedDistance < 8,
+        snapAngle;
+
+      if (treatAsTap) {
+        // Tap toggles in a consistent visual direction.
+        snapAngle = dragStartAngle - 180;
+      } else if (Math.abs(latestDeltaX) >= threshold) {
+        // Flip in the direction the user dragged so the spin animation
+        // continues naturally from where they let go.
+        snapAngle =
+          latestDeltaX > 0 ? dragStartAngle + 180 : dragStartAngle - 180;
+      } else {
+        snapAngle = dragStartAngle;
+      }
+
+      setSettledAngle(snapAngle);
+    };
+
+    aboutFlipCard.addEventListener("pointerup", function (event) {
+      endDrag(event, false);
+    });
+
+    aboutFlipCard.addEventListener("pointercancel", function (event) {
+      endDrag(event, true);
+    });
+
+    aboutFlipCard.addEventListener("dragstart", function (event) {
+      event.preventDefault();
+    });
+
+    aboutFlipCard.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        setSettledAngle(settledAngle - 180);
+      }
+    });
+  }
+
+  var contactEmailTopic = document.getElementById("contact-email-topic"),
+    contactOpenGmail = document.getElementById("contact-open-gmail"),
+    contactOpenOutlook = document.getElementById("contact-open-outlook"),
+    contactEmailHint = document.getElementById("contact-email-hint");
+
+  var buildWebComposeUrls = function (recipient, subject, body) {
+    var gmailCompose =
+      "https://mail.google.com/mail/?view=cm&fs=1&to=" +
+      encodeURIComponent(recipient) +
+      "&su=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+
+    /* Outlook / Microsoft 365 "Outlook on the web" compose — personal
+       @outlook.com accounts are usually redirected here after login. */
+    var outlookCompose =
+      "https://outlook.office.com/mail/deeplink/compose?to=" +
+      encodeURIComponent(recipient) +
+      "&subject=" +
+      encodeURIComponent(subject) +
+      "&body=" +
+      encodeURIComponent(body);
+
+    return { gmailCompose: gmailCompose, outlookCompose: outlookCompose };
+  };
+
+  var readTopicOrHint = function () {
+    var topic = (contactEmailTopic.value || "").trim();
+    if (!topic) {
+      if (contactEmailHint) {
+        contactEmailHint.textContent = "Please choose a topic first.";
+      }
+      return null;
+    }
+    if (contactEmailHint) {
+      contactEmailHint.textContent = "";
+    }
+    return topic;
+  };
+
+  if (contactEmailTopic && contactOpenGmail && contactOpenOutlook) {
+    var contactRecipient = "kelvinyu92@gmail.com";
+
+    contactEmailTopic.addEventListener("change", function () {
+      if (contactEmailHint) {
+        contactEmailHint.textContent = "";
+      }
+    });
+
+    contactOpenGmail.addEventListener("click", function () {
+      var topic = readTopicOrHint();
+      if (!topic) {
+        return;
+      }
+      var subject = "[Portfolio] " + topic,
+        body = "Hi Kelvin,\n\n",
+        urls = buildWebComposeUrls(contactRecipient, subject, body);
+      window.open(urls.gmailCompose, "_blank");
+    });
+
+    contactOpenOutlook.addEventListener("click", function () {
+      var topic = readTopicOrHint();
+      if (!topic) {
+        return;
+      }
+      var subject = "[Portfolio] " + topic,
+        body = "Hi Kelvin,\n\n",
+        urls = buildWebComposeUrls(contactRecipient, subject, body);
+      window.open(urls.outlookCompose, "_blank");
+    });
+  }
+
   // scroll menu
   var sections = $(".section"),
     nav = $(".navbar-fixed-top,footer"),

@@ -60,7 +60,7 @@
                   <span class="hero-line hero-name-plain">Kelvin Yu</span>
                   <span
                     class="hero-line hero-typed-line"
-                    data-phrases="Software Engineer|Full Stack Dev|test|put something here"
+                    data-phrases='Software Engineer|Full Stack Dev|Print("Welcome...")'
                     aria-hidden="true"
                   >
                     <span class="hero-typed-text"> </span
@@ -78,45 +78,55 @@
     <!-- about -->
     <div class="section" id="about">
       <div class="container">
-        <div class="col-md-6" data-aos="fade-up">
+        <div class="col-md-6 about-copy" data-aos="fade-up">
           <h4>01</h4>
           <h1 class="size-50">
             More <br />
-            About me
+            About Me
           </h1>
 
-          <div class="h-20"></div>
-
-          <p>
-            I’m a Software Engineer with experience building full-stack and
-            backend systems, with a strong focus on scalable and reliable
-            infrastructure. I’ve worked across languages like Python, and Java,
-            developing microservices, APIs, and data-driven features that handle
-            real-world usage at scale. I’m particularly interested in designing
-            efficient systems, improving performance, and turning ideas into
-            production-ready applications.
-          </p>
-          <p>
-            Outside of work, I enjoy staying active and exploring new
-            experiences. I spend time at the gym, snowboarding, collecting
-            Pokémon cards, and I also love travelling and trying different
-            cuisines. I’m drawn to anything that combines exploration and
-            progression whether that’s discovering new places, experiencing
-            different cultures through food, or continuing to build and refine
-            my interests over time.
-          </p>
+          <article class="about-card">
+            <p>
+              I’m a Software Engineer with experience building full-stack and
+              backend systems, with a strong focus on scalable and reliable
+              infrastructure. I’ve worked across languages like Python, and
+              Java, developing microservices, APIs, and data-driven features
+              that handle real-world usage at scale. I’m particularly interested
+              in designing efficient systems, improving performance, and turning
+              ideas into production-ready applications.
+            </p>
+            <p>
+              Outside of work, I enjoy staying active and exploring new
+              experiences. I spend time at the gym, snowboarding, collecting
+              Pokémon cards, and I also love travelling and trying different
+              cuisines. I’m drawn to anything that combines exploration and
+              progression whether that’s discovering new places, experiencing
+              different cultures through food, or continuing to build and refine
+              my interests over time.
+            </p>
+          </article>
         </div>
-        <div class="col-md-6 about-img-div">
-          <div class="about-border" data-aos="fade-up" data-aos-delay="1"></div>
-          <img
-            src="img/aboutme.jpg"
-            width="400"
-            class="img-responsive"
-            alt=""
-            align="right"
-            data-aos="fade-right"
-            data-aos-delay="0"
-          />
+
+        <div class="col-md-6 about-media" data-aos="fade-up" data-aos-delay="0">
+          <button
+            class="about-photo-card about-flip-card"
+            type="button"
+            aria-label="Drag card to reveal message"
+            aria-pressed="false"
+          >
+            <span class="about-flip-card__inner">
+              <span class="about-flip-card__face about-flip-card__face--front">
+                <img
+                  src="img/aboutme.jpg"
+                  class="img-responsive"
+                  alt="Portrait of Kelvin Yu"
+                />
+              </span>
+              <span class="about-flip-card__face about-flip-card__face--back">
+                <span class="about-flip-card__message">The 6ix </span>
+              </span>
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -260,133 +270,276 @@
           <div class="h-50"></div>
         </div>
         <div class="col-md-12">
-          <ul class="timeline">
-            <!-- add for summer 2024  -->
-            <li class="timeline-event" data-aos="fade-up">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy">
-                <p class="timeline-event-thumbnail">May 2024 - August 2024</p>
-
-                <h3 style="margin-bottom: 0px">
-                  Toronto Dominion Bank
-                  <img
-                    class="td-icon"
-                    src="img/td-trust-icon.png"
-                    alt="td bank icon"
-                    style="
-                      position: relative;
-                      bottom: 4px;
-                      height: 40px;
-                      margin-top: 2px;
-                      margin-left: 2px;
-                    "
-                  />
-                </h3>
-
-                <h4>Software Engineer Intern</h4>
-                <p>
-                  <strong>Toronto, Ontario</strong>
-                  <br />
-                  Incoming Software Engineer Intern at TD Bank
-                </p>
-              </div>
+          <ol class="timeline">
+            <li class="timeline-item" data-aos="fade-up">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://www.td.com/ca/en/personal-banking"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit TD Bank"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">May 2025 — Aug 2025</span>
+                    <h3 class="timeline-card__company">
+                      Toronto Dominion Bank
+                    </h3>
+                    <p class="timeline-card__role">Software Engineer Intern</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img src="img/td-trust-icon.png" alt="TD Bank logo" />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Implemented a real-time risk assessment microservice with
+                    Spring Boot to evaluate AML risk profiles for 1M+ accounts.
+                  </li>
+                  <li>
+                    Developed SQL in Oracle SQL Developer for backend APIs
+                    powering AML services, handling 100K+ daily transactions.
+                  </li>
+                  <li>
+                    Built automated CI/CD pipelines with GitHub Actions,
+                    reducing deployment time by 30% and improving release
+                    reliability.
+                  </li>
+                </ul>
+              </a>
             </li>
 
-            <li class="timeline-event" data-aos="fade-up">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy">
-                <p class="timeline-event-thumbnail">May 2023 - August 2023</p>
-                <h3 style="margin-bottom: 0px">
-                  Government of Ontario
-                  <img
-                    class="td-icon"
-                    src="img/ontario-logo.jpg"
-                    alt="government of ontario icon"
-                    style="
-                      position: relative;
-                      bottom: 2px;
-                      height: 40px;
-                      margin-top: 2px;
-                      margin-left: 2px;
-                    "
-                  />
-                </h3>
-                <h4>Software Engineer Intern</h4>
-                <p>
-                  <strong>Toronto, Ontario</strong>
-                  <br />Leveraged React to develop dynamic and responsive
-                  websites, resulting in a 30% increase in user engagement for
-                  Ontario's largest Cybersecurity Conference<br />
-                  Implemented comprehensive PHP and MySQL based custom content
-                  management systems to create, manage, and update events for
-                  over 1,000 participants <br />
-                  Utilized automation scripts through REST APIs to significantly
-                  cut down the manual effort required for susceptibility testing
-                  through agile methodologies
-                </p>
-              </div>
+            <li class="timeline-item" data-aos="fade-up">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://www.thescore.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit theScore"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date"
+                      >Sept 2024 — Apr 2025</span
+                    >
+                    <h3 class="timeline-card__company">
+                      Score Media &amp; Gaming
+                    </h3>
+                    <p class="timeline-card__role">Software Engineer Intern</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img
+                      src="img/score-logo.png"
+                      alt="Score Media and Gaming logo"
+                    />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Built scalable account-linking infrastructure in Ruby and
+                    Elixir for 4M+ users, enabling cross-platform authentication
+                    between theScore Media and Bet platforms while reducing
+                    verification latency.
+                  </li>
+                  <li>
+                    Led end-to-end development of the Reactions feature,
+                    boosting passive engagement among 90% of non-messaging users
+                    by integrating emojis with Redis-backed count tracking and
+                    feature-flag controls for safe, incremental rollout.
+                  </li>
+                  <li>
+                    Improved betting accuracy by 30% by combining a
+                    simulation-based odds engine with real-time Vegas Sportsbook
+                    API data, validating multi-format REST responses to support
+                    dynamic market adjustments.
+                  </li>
+                </ul>
+              </a>
             </li>
 
-            <li class="timeline-event" data-aos="fade-up" data-aos-delay=".2">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy">
-                <p class="timeline-event-thumbnail">
-                  October 2022 - August 2023
-                </p>
-                <h3 style="margin-bottom: 0px">
-                  McMaster Formula Electric
-                  <img
-                    class="td-icon"
-                    src="img/mac-formula-logo.png"
-                    alt="mac formula electric logo"
-                    style="position: relative; bottom: 4px"
-                  />
-                </h3>
-                <h4>Software Developer</h4>
-                <strong>Hamilton, Ontario</strong>
-                <p>
-                  Converted Simulink control logic into usable C code, enabling
-                  control of driving functionality through vehicle dynamics and
-                  motor systems <br />
-                  Prioritized use of testing/debugging tools in Simulink and C,
-                  achieving faster root cause analysis for competition
+            <li class="timeline-item" data-aos="fade-up">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://www.td.com/ca/en/personal-banking"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit TD Bank"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">May 2024 — Aug 2024</span>
+                    <h3 class="timeline-card__company">
+                      Toronto Dominion Bank
+                    </h3>
+                    <p class="timeline-card__role">Software Engineer Intern</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img src="img/td-trust-icon.png" alt="TD Bank logo" />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Developed an internal tool with Next.js and deployed via
+                    Docker for 50+ users, optimizing quiz management for
+                    proof-of-concept ideas on a centralized platform and
+                    decreasing report generation time by 35%.
+                  </li>
+                  <li>
+                    Engineered a Root Cause Analysis bot for banking
+                    applications using Retrieval-Augmented Generation and
+                    OpenAI.
+                  </li>
+                  <li>
+                    Launched MS Azure for cloud infrastructure and tracked
+                    issues with Azure DevOps, scaling resources by 50%.
+                  </li>
+                </ul>
+              </a>
+            </li>
 
-                  <br />
-                  Mitigated bugs by reviewing Python code, testing modules, and
-                  version releases <br />
-                </p>
-              </div>
+            <li class="timeline-item" data-aos="fade-up">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://www.ontario.ca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Government of Ontario"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">May 2023 — Aug 2023</span>
+                    <h3 class="timeline-card__company">
+                      Government of Ontario
+                    </h3>
+                    <p class="timeline-card__role">Software Engineer Intern</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img
+                      src="img/ontario-logo.jpg"
+                      alt="Government of Ontario logo"
+                    />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Built dynamic, responsive React sites that drove a 30%
+                    increase in user engagement for Ontario's largest
+                    Cybersecurity Conference.
+                  </li>
+                  <li>
+                    Developed a custom PHP and MySQL CMS to create, manage, and
+                    update events for over 1,000 participants.
+                  </li>
+                  <li>
+                    Automated susceptibility testing through REST API scripts,
+                    significantly reducing manual effort using agile workflows.
+                  </li>
+                </ul>
+              </a>
             </li>
-            <li class="timeline-event" data-aos="fade-up" data-aos-delay=".4">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy">
-                <p class="timeline-event-thumbnail">May 2022 - August 2022</p>
-                <h3 style="margin-bottom: 0px">
-                  iStar Abacus
-                  <img
-                    class="td-icon"
-                    src="img/waama.png"
-                    alt="abacus icon"
-                    style="
-                      position: relative;
-                      bottom: 4px;
-                      height: 40px;
-                      margin-top: 2px;
-                    "
-                  />
-                </h3>
-                <h4>Math Teaching Assistant</h4>
-                <p>
-                  <strong>Toronto, Ontario</strong>
-                  <br />Lead 30+ students in tutorials while grading weekly
-                  quizzes and providing feedback to students during office hours
-                  <br />
-                  Tutored students by emphasizing conceptual understanding of
-                  mathematical topics in a professional environment
-                </p>
-              </div>
+
+            <li class="timeline-item" data-aos="fade-up" data-aos-delay=".2">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://macformularacing.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit McMaster Formula Electric"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">Oct 2022 — Aug 2023</span>
+                    <h3 class="timeline-card__company">
+                      McMaster Formula Electric
+                    </h3>
+                    <p class="timeline-card__role">Software Developer</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Hamilton, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img
+                      src="img/mac-formula-logo.png"
+                      alt="McMaster Formula Electric logo"
+                    />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Converted Simulink control logic into production-ready C
+                    code, powering vehicle dynamics and motor system
+                    functionality.
+                  </li>
+                  <li>
+                    Prioritized testing and debugging in Simulink and C,
+                    enabling faster root-cause analysis ahead of competition.
+                  </li>
+                  <li>
+                    Mitigated bugs by reviewing Python code, validating modules,
+                    and managing version releases.
+                  </li>
+                </ul>
+              </a>
             </li>
-          </ul>
+
+            <li class="timeline-item" data-aos="fade-up" data-aos-delay=".4">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://istarabacus.wixsite.com/abacus/abacus"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit iStar Abacus"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">May 2022 — Aug 2022</span>
+                    <h3 class="timeline-card__company">iStar Abacus</h3>
+                    <p class="timeline-card__role">Math Teaching Assistant</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img src="img/waama.png" alt="iStar Abacus logo" />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Led tutorials for 50+ students, graded weekly quizzes, and
+                    provided feedback during office hours.
+                  </li>
+                  <li>
+                    Tutored students with a focus on conceptual understanding of
+                    mathematical topics in a professional setting.
+                  </li>
+                </ul>
+              </a>
+            </li>
+          </ol>
         </div>
       </div>
     </div>
@@ -440,7 +593,10 @@
                     aria-label="React"
                     title="React"
                   >
-                    <i class="devicon-react-original colored" aria-hidden="true"></i>
+                    <i
+                      class="devicon-react-original colored"
+                      aria-hidden="true"
+                    ></i>
                   </li>
                 </ul>
               </div>
@@ -915,46 +1071,88 @@
           <h4>05</h4>
           <h1 class="size-50">Contact Me</h1>
         </div>
-        <div class="col-md-4" data-aos="fade-up">
-          <h3>Number</h3>
-          <p style="color: black">+1 416 716 8877</p>
 
-          <h3>Email</h3>
-
-          <p style="color: black">
-            <a href="mailto:kelvinyu92@gmail.com" style="color: black"
-              >kelvinyu92@gmail.com</a
+        <div class="col-md-12 contact-quick" data-aos="fade-up">
+          <p class="contact-quick__label">Reach out!</p>
+          <div class="contact-quick__row">
+            <select
+              id="contact-email-topic"
+              class="contact-quick__select"
+              autocomplete="off"
+              aria-label="Email topic"
             >
-          </p>
-          <h3>Socials</h3>
-
-          <ul class="social">
-            <li>
-              <a href="https://github.com/kelvin-u"
-                ><i class="ion-social-github"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/kelvin-u/"
-                ><i class="ion-social-linkedin"></i
-              ></a>
-            </li>
-
-            <li>
-              <a href="https://www.instagram.com/kelvinyu/"
-                ><i class="ion-social-instagram"></i
-              ></a>
-            </li>
-            <li>
-              <a href="Kelvin Yu Resume Updated.pdf"
-                ><i class="ion-android-document"></i
-              ></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-          <div class="h-50"></div>
+              <option value="">Choose a topic…</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Job Opportunity">Job Opportunity</option>
+              <option value="Project Collaboration">
+                Project Collaboration
+              </option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="contact-quick__actions">
+              <button
+                type="button"
+                class="contact-quick__btn"
+                id="contact-open-gmail"
+              >
+                Gmail
+              </button>
+              <button
+                type="button"
+                class="contact-quick__btn"
+                id="contact-open-outlook"
+              >
+                Outlook
+              </button>
+            </div>
+          </div>
+          <p
+            class="contact-quick__hint"
+            id="contact-email-hint"
+            role="status"
+            aria-live="polite"
+          ></p>
         </div>
-        <div class="col-md-8" data-aos="fade-up"></div>
+
+        <div class="col-md-12 contact-details" data-aos="fade-up">
+          <div class="contact-details__item">
+            <span class="contact-details__k">Phone</span>
+            <a href="tel:+14167168877">+1 416 716 8877</a>
+          </div>
+          <div class="contact-details__item">
+            <span class="contact-details__k">Email</span>
+            <a href="mailto:kelvinyu92@gmail.com">kelvinyu92@gmail.com</a>
+          </div>
+          <div class="contact-details__item contact-details__item--socials">
+            <span class="contact-details__k">Socials</span>
+            <ul class="social">
+              <li>
+                <a href="https://github.com/kelvin-u" aria-label="GitHub"
+                  ><i class="ion-social-github"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/kelvin-u/"
+                  aria-label="LinkedIn"
+                  ><i class="ion-social-linkedin"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/kelvinyu/"
+                  aria-label="Instagram"
+                  ><i class="ion-social-instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="Kelvin Yu Resume Updated.pdf" aria-label="Resume"
+                  ><i class="ion-android-document"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
