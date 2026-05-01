@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,6 +11,11 @@
     <link href="ionicons/css/ionicons.min.css" rel="stylesheet" />
     <link href="css/animate.min.css" rel="stylesheet" />
     <link href="css/aos.css" rel="stylesheet" />
+    <!-- Devicon for brand tech icons -->
+    <link
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css"
+      rel="stylesheet"
+    />
     <!-- main style -->
     <link href="css/style.css" rel="stylesheet" />
   </head>
@@ -34,10 +39,11 @@
       <nav>
         <ul>
           <li><a href="#about">About</a></li>
+          <li><a href="#skills">skills</a></li>
           <li><a href="#experience">experience</a></li>
           <li><a href="#projects">projects</a></li>
           <li><a href="#contact">contact</a></li>
-          <li><a href="Kelvin Yu Resume Updated.pdf">resume</a></li>
+          <li><a href="Kelvin_Yu_Resume.pdf">resume</a></li>
         </ul>
       </nav>
     </header>
@@ -48,11 +54,21 @@
       <div class="container">
         <div class="disply-table">
           <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
-            <h4>Kelvin Yu</h4>
-            <h1>
-              SWE @<br />
-              McMaster University
-            </h1>
+            <div class="hero-copy">
+              <h1 class="hero-name" aria-label="kelvin yu software engineer">
+                <span aria-hidden="true">
+                  <span class="hero-line hero-name-plain">Kelvin Yu</span>
+                  <span
+                    class="hero-line hero-typed-line"
+                    data-phrases='Software Engineer|Full Stack Dev|print("Welcome...")'
+                    aria-hidden="true"
+                  >
+                    <span class="hero-typed-text"> </span
+                    ><span class="hero-type-cursor"></span>
+                  </span>
+                </span>
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -62,56 +78,191 @@
     <!-- about -->
     <div class="section" id="about">
       <div class="container">
-        <div class="col-md-6" data-aos="fade-up">
+        <div class="col-md-6 about-copy" data-aos="fade-up">
           <h4>01</h4>
           <h1 class="size-50">
             More <br />
-            About me
+            About Me
           </h1>
 
-          <div class="h-20"></div>
-
-          <p>
-            As an incoming Software Engineering Intern at TD Bank, I am
-            dedicated to pursuing a career in the field of software development
-            and engineering. I am currently a third year McMaster Software
-            Engineering student enthusiastic about discovering new technologies
-            and incorporating them into my skillset. I have hands-on experience
-            in both front-end and back-end development, including proficiency in
-            programming languages such as Python & Java, as well as frameworks
-            like React and databases like MySQL.
-          </p>
-          <p>
-            In my downtime, I love to immerse myself in music or watching the
-            next big hit on Netflix. Whether im pushing my limits at the gym or
-            playing soccer with my friends I enjoy the thrill of competition and
-            change of pace, challenging myself and growing as a person. In the
-            future, I hope to continue integrating my professional pursuits in
-            software development with my personal interests, from personal
-            fitness to socializing with friends and loved ones.
-          </p>
+          <article class="about-card">
+            <p>
+              I’m a Software Engineer with experience building full-stack and
+              backend systems, with a strong focus on scalable and reliable
+              infrastructure. I’ve worked across languages like Python, and
+              Java, developing microservices, APIs, and data-driven features
+              that handle real-world usage at scale. I’m particularly interested
+              in designing efficient systems, improving performance, and turning
+              ideas into production-ready applications.
+            </p>
+            <p>
+              Outside of work, I enjoy staying active and exploring new
+              experiences. I spend time at the gym, snowboarding, collecting
+              Pokémon cards, and I also love travelling and trying different
+              cuisines. I’m drawn to anything that combines exploration and
+              progression whether that’s discovering new places, experiencing
+              different cultures through food, or continuing to build and refine
+              my interests over time.
+            </p>
+          </article>
         </div>
-        <div class="col-md-6 about-img-div">
-          <div class="about-border" data-aos="fade-up" data-aos-delay="1"></div>
-          <img
-            src="img/aboutme.jpg"
-            width="400"
-            class="img-responsive"
-            alt=""
-            align="right"
-            data-aos="fade-right"
-            data-aos-delay="0"
-          />
+
+        <div class="col-md-6 about-media" data-aos="fade-up" data-aos-delay="0">
+          <button
+            class="about-photo-card about-flip-card"
+            type="button"
+            aria-label="Drag card to reveal message"
+            aria-pressed="false"
+          >
+            <span class="about-flip-card__inner">
+              <span class="about-flip-card__face about-flip-card__face--front">
+                <img
+                  src="img/aboutme.jpg"
+                  class="img-responsive"
+                  alt="Portrait of Kelvin Yu"
+                />
+              </span>
+              <span class="about-flip-card__face about-flip-card__face--back">
+                <span class="about-flip-card__message">The 6ix </span>
+              </span>
+            </span>
+          </button>
         </div>
       </div>
     </div>
     <!-- ./about -->
 
+    <!-- skills -->
+    <div class="section" id="skills">
+      <div class="skills-stars" aria-hidden="true"></div>
+      <div class="container">
+        <div class="col-md-12" data-aos="fade-up">
+          <h4>02</h4>
+          <h1 class="size-50">Skills</h1>
+        </div>
+        <div class="col-md-12 skills-globe-column" data-aos="fade-up">
+          <div
+            class="skills-globe"
+            aria-label="interactive skills globe"
+            role="img"
+          >
+            <div class="skills-globe-glow" aria-hidden="true"></div>
+            <svg
+              class="skills-globe-mesh"
+              viewBox="-1.1 -1.1 2.2 2.2"
+              aria-hidden="true"
+              focusable="false"
+            ></svg>
+            <span class="skill-node" aria-label="typescript">
+              <i
+                class="devicon-typescript-plain colored"
+                aria-hidden="true"
+              ></i>
+              <span class="skill-tooltip">TypeScript</span>
+            </span>
+            <span class="skill-node" aria-label="figma">
+              <i class="devicon-figma-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Figma</span>
+            </span>
+            <span class="skill-node" aria-label="javascript">
+              <i
+                class="devicon-javascript-plain colored"
+                aria-hidden="true"
+              ></i>
+              <span class="skill-tooltip">JavaScript</span>
+            </span>
+            <span class="skill-node" aria-label="html5">
+              <i class="devicon-html5-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">HTML</span>
+            </span>
+            <span class="skill-node" aria-label="css3">
+              <i class="devicon-css3-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">CSS</span>
+            </span>
+            <span class="skill-node" aria-label="cplusplus">
+              <i class="devicon-cplusplus-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">C++</span>
+            </span>
+            <span class="skill-node" aria-label="python">
+              <i class="devicon-python-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Python</span>
+            </span>
+            <span class="skill-node" aria-label="java">
+              <i class="devicon-java-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Java</span>
+            </span>
+            <span class="skill-node" aria-label="sql">
+              <i class="devicon-mysql-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">SQL</span>
+            </span>
+            <span class="skill-node" aria-label="tailwindcss">
+              <i
+                class="devicon-tailwindcss-plain colored"
+                aria-hidden="true"
+              ></i>
+              <span class="skill-tooltip">Tailwind CSS</span>
+            </span>
+            <span class="skill-node" aria-label="nextjs">
+              <i class="devicon-nextjs-plain" aria-hidden="true"></i>
+              <span class="skill-tooltip">Next.js</span>
+            </span>
+            <span class="skill-node" aria-label="github">
+              <i class="devicon-github-original" aria-hidden="true"></i>
+              <span class="skill-tooltip">GitHub</span>
+            </span>
+            <span class="skill-node" aria-label="git">
+              <i class="devicon-git-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Git</span>
+            </span>
+            <span class="skill-node" aria-label="bash">
+              <i class="devicon-bash-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Bash</span>
+            </span>
+            <span class="skill-node" aria-label="go">
+              <i class="devicon-go-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Go</span>
+            </span>
+            <span class="skill-node" aria-label="docker">
+              <i class="devicon-docker-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Docker</span>
+            </span>
+            <span class="skill-node" aria-label="kubernetes">
+              <i
+                class="devicon-kubernetes-plain colored"
+                aria-hidden="true"
+              ></i>
+              <span class="skill-tooltip">Kubernetes</span>
+            </span>
+            <span class="skill-node" aria-label="aws">
+              <i
+                class="devicon-amazonwebservices-plain-wordmark colored"
+                aria-hidden="true"
+              ></i>
+              <span class="skill-tooltip">AWS</span>
+            </span>
+            <span class="skill-node" aria-label="azure">
+              <i class="devicon-azure-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Azure</span>
+            </span>
+            <span class="skill-node" aria-label="springboot">
+              <i class="devicon-spring-original colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">Spring Boot</span>
+            </span>
+            <span class="skill-node" aria-label="mongodb">
+              <i class="devicon-mongodb-plain colored" aria-hidden="true"></i>
+              <span class="skill-tooltip">MongoDB</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ./skills -->
+
     <!-- experience  -->
     <div class="section" id="experience">
       <div class="container">
         <div class="col-md-12">
-          <h4>02</h4>
+          <h4>03</h4>
           <h1 class="size-50">
             My <br />
             Experience
@@ -119,133 +270,276 @@
           <div class="h-50"></div>
         </div>
         <div class="col-md-12">
-          <ul class="timeline">
-            <!-- add for summer 2024  -->
-            <li class="timeline-event" data-aos="fade-up">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy">
-                <p class="timeline-event-thumbnail">May 2024 - August 2024</p>
-
-                <h3 style="margin-bottom: 0px">
-                  Toronto Dominion Bank
-                  <img
-                    class="td-icon"
-                    src="img/td-trust-icon.png"
-                    alt="td bank icon"
-                    style="
-                      position: relative;
-                      bottom: 4px;
-                      height: 40px;
-                      margin-top: 2px;
-                      margin-left: 2px;
-                    "
-                  />
-                </h3>
-
-                <h4>Software Engineer Intern</h4>
-                <p>
-                  <strong>Toronto, Ontario</strong>
-                  <br />
-                  Incoming Software Engineer Intern at TD Bank
-                </p>
-              </div>
+          <ol class="timeline">
+            <li class="timeline-item" data-aos="fade-up">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://www.td.com/ca/en/personal-banking"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit TD Bank"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">May 2025 — Aug 2025</span>
+                    <h3 class="timeline-card__company">
+                      Toronto Dominion Bank
+                    </h3>
+                    <p class="timeline-card__role">Software Engineer Intern</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img src="img/td-trust-icon.png" alt="TD Bank logo" />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Implemented a real-time risk assessment microservice with
+                    Spring Boot to evaluate AML risk profiles for 1M+ accounts.
+                  </li>
+                  <li>
+                    Developed SQL in Oracle SQL Developer for backend APIs
+                    powering AML services, handling 100K+ daily transactions.
+                  </li>
+                  <li>
+                    Built automated CI/CD pipelines with GitHub Actions,
+                    reducing deployment time by 30% and improving release
+                    reliability.
+                  </li>
+                </ul>
+              </a>
             </li>
 
-            <li class="timeline-event" data-aos="fade-up">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy">
-                <p class="timeline-event-thumbnail">May 2023 - August 2023</p>
-                <h3 style="margin-bottom: 0px">
-                  Government of Ontario
-                  <img
-                    class="td-icon"
-                    src="img/ontario-logo.jpg"
-                    alt="government of ontario icon"
-                    style="
-                      position: relative;
-                      bottom: 2px;
-                      height: 40px;
-                      margin-top: 2px;
-                      margin-left: 2px;
-                    "
-                  />
-                </h3>
-                <h4>Software Engineer Intern</h4>
-                <p>
-                  <strong>Toronto, Ontario</strong>
-                  <br />Leveraged React to develop dynamic and responsive
-                  websites, resulting in a 30% increase in user engagement for
-                  Ontario's largest Cybersecurity Conference<br />
-                  Implemented comprehensive PHP and MySQL based custom content
-                  management systems to create, manage, and update events for
-                  over 1,000 participants <br />
-                  Utilized automation scripts through REST APIs to significantly
-                  cut down the manual effort required for susceptibility testing
-                  through agile methodologies
-                </p>
-              </div>
+            <li class="timeline-item" data-aos="fade-up">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://www.thescore.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit theScore"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date"
+                      >Sept 2024 — Apr 2025</span
+                    >
+                    <h3 class="timeline-card__company">
+                      Score Media &amp; Gaming
+                    </h3>
+                    <p class="timeline-card__role">Software Engineer Intern</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img
+                      src="img/score-logo.png"
+                      alt="Score Media and Gaming logo"
+                    />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Built scalable account-linking infrastructure in Ruby and
+                    Elixir for 4M+ users, enabling cross-platform authentication
+                    between theScore Media and Bet platforms while reducing
+                    verification latency.
+                  </li>
+                  <li>
+                    Led end-to-end development of the Reactions feature,
+                    boosting passive engagement among 90% of non-messaging users
+                    by integrating emojis with Redis-backed count tracking and
+                    feature-flag controls for safe, incremental rollout.
+                  </li>
+                  <li>
+                    Improved betting accuracy by 30% by combining a
+                    simulation-based odds engine with real-time Vegas Sportsbook
+                    API data, validating multi-format REST responses to support
+                    dynamic market adjustments.
+                  </li>
+                </ul>
+              </a>
             </li>
 
-            <li class="timeline-event" data-aos="fade-up" data-aos-delay=".2">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy">
-                <p class="timeline-event-thumbnail">
-                  October 2022 - August 2023
-                </p>
-                <h3 style="margin-bottom: 0px">
-                  McMaster Formula Electric
-                  <img
-                    class="td-icon"
-                    src="img/mac-formula-logo.png"
-                    alt="mac formula electric logo"
-                    style="position: relative; bottom: 4px"
-                  />
-                </h3>
-                <h4>Software Developer</h4>
-                <strong>Hamilton, Ontario</strong>
-                <p>
-                  Converted Simulink control logic into usable C code, enabling
-                  control of driving functionality through vehicle dynamics and
-                  motor systems <br />
-                  Prioritized use of testing/debugging tools in Simulink and C,
-                  achieving faster root cause analysis for competition
+            <li class="timeline-item" data-aos="fade-up">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://www.td.com/ca/en/personal-banking"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit TD Bank"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">May 2024 — Aug 2024</span>
+                    <h3 class="timeline-card__company">
+                      Toronto Dominion Bank
+                    </h3>
+                    <p class="timeline-card__role">Software Engineer Intern</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img src="img/td-trust-icon.png" alt="TD Bank logo" />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Developed an internal tool with Next.js and deployed via
+                    Docker for 50+ users, optimizing quiz management for
+                    proof-of-concept ideas on a centralized platform and
+                    decreasing report generation time by 35%.
+                  </li>
+                  <li>
+                    Engineered a Root Cause Analysis bot for banking
+                    applications using Retrieval-Augmented Generation and
+                    OpenAI.
+                  </li>
+                  <li>
+                    Launched MS Azure for cloud infrastructure and tracked
+                    issues with Azure DevOps, scaling resources by 50%.
+                  </li>
+                </ul>
+              </a>
+            </li>
 
-                  <br />
-                  Mitigated bugs by reviewing Python code, testing modules, and
-                  version releases <br />
-                </p>
-              </div>
+            <li class="timeline-item" data-aos="fade-up">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://www.ontario.ca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit Government of Ontario"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">May 2023 — Aug 2023</span>
+                    <h3 class="timeline-card__company">
+                      Government of Ontario
+                    </h3>
+                    <p class="timeline-card__role">Software Engineer Intern</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img
+                      src="img/ontario-logo.jpg"
+                      alt="Government of Ontario logo"
+                    />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Built dynamic, responsive React sites that drove a 30%
+                    increase in user engagement for Ontario's largest
+                    Cybersecurity Conference.
+                  </li>
+                  <li>
+                    Developed a custom PHP and MySQL CMS to create, manage, and
+                    update events for over 1,000 participants.
+                  </li>
+                  <li>
+                    Automated susceptibility testing through REST API scripts,
+                    significantly reducing manual effort using agile workflows.
+                  </li>
+                </ul>
+              </a>
             </li>
-            <li class="timeline-event" data-aos="fade-up" data-aos-delay=".4">
-              <label class="timeline-event-icon"></label>
-              <div class="timeline-event-copy">
-                <p class="timeline-event-thumbnail">May 2022 - August 2022</p>
-                <h3 style="margin-bottom: 0px">
-                  iStar Abacus
-                  <img
-                    class="td-icon"
-                    src="img/waama.png"
-                    alt="abacus icon"
-                    style="
-                      position: relative;
-                      bottom: 4px;
-                      height: 40px;
-                      margin-top: 2px;
-                    "
-                  />
-                </h3>
-                <h4>Math Teaching Assistant</h4>
-                <p>
-                  <strong>Toronto, Ontario</strong>
-                  <br />Lead 30+ students in tutorials while grading weekly
-                  quizzes and providing feedback to students during office hours
-                  <br />
-                  Tutored students by emphasizing conceptual understanding of
-                  mathematical topics in a professional environment
-                </p>
-              </div>
+
+            <li class="timeline-item" data-aos="fade-up" data-aos-delay=".2">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://macformularacing.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit McMaster Formula Electric"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">Oct 2022 — Aug 2023</span>
+                    <h3 class="timeline-card__company">
+                      McMaster Formula Electric
+                    </h3>
+                    <p class="timeline-card__role">Software Developer</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Hamilton, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img
+                      src="img/mac-formula-logo.png"
+                      alt="McMaster Formula Electric logo"
+                    />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Converted Simulink control logic into production-ready C
+                    code, powering vehicle dynamics and motor system
+                    functionality.
+                  </li>
+                  <li>
+                    Prioritized testing and debugging in Simulink and C,
+                    enabling faster root-cause analysis ahead of competition.
+                  </li>
+                  <li>
+                    Mitigated bugs by reviewing Python code, validating modules,
+                    and managing version releases.
+                  </li>
+                </ul>
+              </a>
             </li>
-          </ul>
+
+            <li class="timeline-item" data-aos="fade-up" data-aos-delay=".4">
+              <span class="timeline-item__marker" aria-hidden="true"></span>
+              <a
+                class="timeline-card"
+                href="https://istarabacus.wixsite.com/abacus/abacus"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit iStar Abacus"
+              >
+                <div class="timeline-card__head">
+                  <div class="timeline-card__heading">
+                    <span class="timeline-card__date">May 2022 — Aug 2022</span>
+                    <h3 class="timeline-card__company">iStar Abacus</h3>
+                    <p class="timeline-card__role">Math Teaching Assistant</p>
+                    <p class="timeline-card__location">
+                      <i class="ion-ios-location" aria-hidden="true"></i>
+                      Toronto, Ontario
+                    </p>
+                  </div>
+                  <div class="timeline-card__logo">
+                    <img src="img/waama.png" alt="iStar Abacus logo" />
+                  </div>
+                </div>
+                <ul class="timeline-card__points">
+                  <li>
+                    Led tutorials for 50+ students, graded weekly quizzes, and
+                    provided feedback during office hours.
+                  </li>
+                  <li>
+                    Tutored students with a focus on conceptual understanding of
+                    mathematical topics in a professional setting.
+                  </li>
+                </ul>
+              </a>
+            </li>
+          </ol>
         </div>
       </div>
     </div>
@@ -255,277 +549,517 @@
     <div class="section" id="projects">
       <div class="container">
         <div class="col-md-12">
-          <h4>03</h4>
+          <h4>04</h4>
           <h1 class="size-50">
             My <br />
             Projects
           </h1>
         </div>
-        <!-- main container -->
 
-        <div class="main-container portfolio-inner clearfix">
-          <!-- portfolio div -->
-          <div class="portfolio-div">
-            <div class="portfolio">
-              <!-- portfolio_filter -->
-              <div class="categories-grid wow fadeInLeft">
-                <nav class="categories">
-                  <ul class="portfolio_filter"></ul>
-                </nav>
+        <div class="col-md-12">
+          <div class="projects-grid" data-aos="fade-up">
+            <a
+              class="project-card"
+              href="https://github.com/speech-buddies/VoiceBridge"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">VoiceBridge</h3>
+                <p class="project-card__desc">
+                  Accessibility interface that helps users with dysarthric
+                  speech control technology via automatic speech recognition.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Python"
+                    title="Python"
+                  >
+                    <i
+                      class="devicon-python-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="ASR"
+                    title="ASR"
+                  >
+                    <i class="ion-mic-a" aria-hidden="true"></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="React"
+                    title="React"
+                  >
+                    <i
+                      class="devicon-react-original colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                </ul>
               </div>
-              <!-- portfolio_filter -->
-
-              <!-- portfolio_container -->
-              <div
-                class="no-padding portfolio_container clearfix"
-                data-aos="fade-up"
-              >
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 fashion logo"
-                  style="cursor: pointer"
-                >
-                  <a id="demo01" class="portfolio_item">
-                    <img
-                      src="img/portfolio/rizz1.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/RizzBot';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="click on me!">RizzGPT</span>
-                          <em>HTML/CSS/Python</em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 ads graphics"
-                  style="cursor: pointer"
-                >
-                  <a id="demo02" class="portfolio_item">
-                    <img
-                      src="img/portfolio/type2.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/terminalTyper';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="click on me!">Typing Test</span>
-                          <em>Python</em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 photography"
-                  style="cursor: pointer"
-                >
-                  <a id="demo03" class="portfolio_item">
-                    <img
-                      src="img/portfolio/moneymoves3.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/currencyConverter';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="click on me!">Currency Converter</span>
-                          <em>HTML/CSS/JavaScript/React</em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 fashion ads"
-                  style="cursor: pointer"
-                >
-                  <a id="demo04" class="portfolio_item">
-                    <img
-                      src="img/portfolio/algo4.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/sortingVisualizer';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="click on me!"
-                            >Sorting Algorithm Visualizer</span
-                          >
-                          <em>Python</em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 graphics ads"
-                  style="cursor: pointer"
-                >
-                  <a id="demo05" class="portfolio_item">
-                    <img
-                      src="img/portfolio/todo5.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="click on me!">Simple To Do list</span>
-                          <em>Python/Flask</em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 photography"
-                  style="cursor: pointer"
-                >
-                  <a id="demo06" class="portfolio_item">
-                    <img
-                      src="img/portfolio/pong6.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/pingPong';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="click on me!">Ping Pong</span>
-                          <em>Python</em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 graphics ads"
-                  style="cursor: pointer"
-                >
-                  <a id="demo07" class="portfolio_item">
-                    <img
-                      src="img/portfolio/06.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="stay tuned for updates!"
-                            >mesh generation</span
-                          >
-                          <em>java, updating </em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 graphics ads"
-                  style="cursor: pointer"
-                >
-                  <a id="demo08" class="portfolio_item">
-                    <img
-                      src="img/portfolio/07.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="stay tuned for updates!">updating</span>
-                          <em>N/A</em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
-
-                <!-- single work -->
-                <div
-                  class="col-md-4 col-sm-6 graphics ads"
-                  style="cursor: pointer"
-                >
-                  <a id="demo09" class="portfolio_item">
-                    <img
-                      src="img/portfolio/08.jpg"
-                      alt="image"
-                      class="img-responsive"
-                    />
-                    <div
-                      class="portfolio_item_hover"
-                      onclick="window.location.href='https://github.com/kelvin-u/';"
-                    >
-                      <div class="portfolio-border clearfix">
-                        <div class="item_info">
-                          <span title="stay tuned for updates!">updating</span>
-                          <em>N/A</em>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <!-- end single work -->
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
               </div>
-              <!-- end portfolio_container -->
-            </div>
-            <!-- portfolio -->
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/kelvin-u/RizzBot"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">RizzGPT</h3>
+                <p class="project-card__desc">
+                  Conversation starter bot that generates personalized openers
+                  from a person's hobbies and interests.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Python"
+                    title="Python"
+                  >
+                    <i
+                      class="devicon-python-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="OpenAI"
+                    title="OpenAI"
+                  >
+                    <i class="ion-ios-lightbulb" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/kelvin-u/sortingVisualizer"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">Sorting Visualizer</h3>
+                <p class="project-card__desc">
+                  Interactive web application that visually demonstrates how
+                  different sorting algorithms operate in real time.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Python"
+                    title="Python"
+                  >
+                    <i
+                      class="devicon-python-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Tkinter"
+                    title="Tkinter"
+                  >
+                    <i class="ion-monitor" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/kelvin-u/city_pathfinder"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">City Pathfinder</h3>
+                <p class="project-card__desc">
+                  Finds the shortest path on a real city map using OpenStreetMap
+                  data with Dijkstra and A* with real time streaming.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Python"
+                    title="Python"
+                  >
+                    <i
+                      class="devicon-python-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="FastAPI"
+                    title="FastAPI"
+                  >
+                    <i class="ion-flash" aria-hidden="true"></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Leaflet"
+                    title="Leaflet"
+                  >
+                    <i class="ion-map" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/kelvin-u/personal-portfolio"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">Personal Portfolio</h3>
+                <p class="project-card__desc">
+                  A responsive personal portfolio website showcasing my
+                  projects, skills, and experience through a clean, modern
+                  interface.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="HTML"
+                    title="HTML"
+                  >
+                    <i
+                      class="devicon-html5-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="CSS"
+                    title="CSS"
+                  >
+                    <i
+                      class="devicon-css3-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="JavaScript"
+                    title="JavaScript"
+                  >
+                    <i
+                      class="devicon-javascript-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/kelvin-u/gigbuddy"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">GigBuddy</h3>
+                <p class="project-card__desc">
+                  All-in-one mobile app for delivery drivers, featuring hot
+                  zones for optimal routes, multi-app orders, and real-time
+                  earnings tracking.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="React Native"
+                    title="React Native"
+                  >
+                    <i
+                      class="devicon-react-original colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="TypeScript"
+                    title="TypeScript"
+                  >
+                    <i
+                      class="devicon-typescript-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Expo"
+                    title="Expo"
+                  >
+                    <i class="ion-android-expand" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/kelvin-u/leetcode-solves"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">LeetCode Solves</h3>
+                <p class="project-card__desc">
+                  My ongoing solutions to NeetCode 150. Arrays, two pointers,
+                  dynamic programming, sliding window, trees, and more.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Python"
+                    title="Python"
+                  >
+                    <i
+                      class="devicon-python-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="DSA"
+                    title="DSA"
+                  >
+                    <i class="ion-network" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/kelvin-u/readmeStatsRankCalculator"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">ReadMe Stats Rank</h3>
+                <p class="project-card__desc">
+                  An interactive web tool that calculates your
+                  github-readme-stats grade and percentile from your raw stats.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="JavaScript"
+                    title="JavaScript"
+                  >
+                    <i
+                      class="devicon-javascript-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="HTML"
+                    title="HTML"
+                  >
+                    <i
+                      class="devicon-html5-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="CSS"
+                    title="CSS"
+                  >
+                    <i
+                      class="devicon-css3-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/kelvin-u/meshGeneration"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">Mesh Generation</h3>
+                <p class="project-card__desc">
+                  Procedural island generator with biomes, lakes, rivers,
+                  aquifers, and elevation profiles, rendered to SVG.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Java"
+                    title="Java"
+                  >
+                    <i
+                      class="devicon-java-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Maven"
+                    title="Maven"
+                  >
+                    <i class="ion-cube" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/OmarCodes2/Bridge"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">Maestro</h3>
+                <p class="project-card__desc">
+                  Real-time multiplayer quiz powered by the Spotify API,
+                  featuring interactive audio clips, visual cues, and seamless
+                  gameplay.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="React Native"
+                    title="React Native"
+                  >
+                    <i
+                      class="devicon-react-original colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Spotify API"
+                    title="Spotify API"
+                  >
+                    <i class="ion-music-note" aria-hidden="true"></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="WebSocket"
+                    title="WebSocket"
+                  >
+                    <i class="ion-wifi" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="project-card"
+              href="https://github.com/ValueAchooMatthew/OneBadApple"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="project-card__body">
+                <h3 class="project-card__title">One Bad Apple</h3>
+                <p class="project-card__desc">
+                  Image-recognition web app that analyzes uploaded photos to
+                  determine whether food is safe to eat, providing quick
+                  classification results.
+                </p>
+                <ul class="project-tags">
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Python"
+                    title="Python"
+                  >
+                    <i
+                      class="devicon-python-plain colored"
+                      aria-hidden="true"
+                    ></i>
+                  </li>
+
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="Next.js"
+                    title="Next.js"
+                  >
+                    <i class="devicon-nextjs-plain" aria-hidden="true"></i>
+                  </li>
+                  <li
+                    class="project-tag project-tag--icon"
+                    aria-label="TensorFlow"
+                    title="TensorFlow"
+                  >
+                    <i class="ion-stats-bars" aria-hidden="true"></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="project-card__links">
+                <span class="project-card__link" aria-label="View on GitHub">
+                  <i class="ion-social-github" aria-hidden="true"></i>
+                </span>
+              </div>
+            </a>
           </div>
-          <!-- end portfolio div -->
         </div>
-        <!-- end main container -->
       </div>
     </div>
     <!-- ./projects -->
@@ -534,49 +1068,91 @@
     <div class="section" id="contact">
       <div class="container">
         <div class="col-md-12">
-          <h4>04</h4>
+          <h4>05</h4>
           <h1 class="size-50">Contact Me</h1>
         </div>
-        <div class="col-md-4" data-aos="fade-up">
-          <h3>Number</h3>
-          <p style="color: black">+1 416 716 8877</p>
 
-          <h3>Email</h3>
-
-          <p style="color: black">
-            <a href="mailto:yukaiwenn@gmail.com" style="color: black"
-              >yukaiwenn@gmail.com</a
+        <div class="col-md-12 contact-quick" data-aos="fade-up">
+          <p class="contact-quick__label">Reach out!</p>
+          <div class="contact-quick__row">
+            <select
+              id="contact-email-topic"
+              class="contact-quick__select"
+              autocomplete="off"
+              aria-label="Email topic"
             >
-          </p>
-          <h3>Socials</h3>
-
-          <ul class="social">
-            <li>
-              <a href="https://github.com/kelvin-u"
-                ><i class="ion-social-github"></i
-              ></a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/kelvin-u/"
-                ><i class="ion-social-linkedin"></i
-              ></a>
-            </li>
-
-            <li>
-              <a href="https://www.instagram.com/kelvinyu/"
-                ><i class="ion-social-instagram"></i
-              ></a>
-            </li>
-            <li>
-              <a href="Kelvin Yu Resume Updated.pdf"
-                ><i class="ion-android-document"></i
-              ></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-          <div class="h-50"></div>
+              <option value="">Choose a topic…</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Job Opportunity">Job Opportunity</option>
+              <option value="Project Collaboration">
+                Project Collaboration
+              </option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="contact-quick__actions">
+              <button
+                type="button"
+                class="contact-quick__btn"
+                id="contact-open-gmail"
+              >
+                Gmail
+              </button>
+              <button
+                type="button"
+                class="contact-quick__btn"
+                id="contact-open-outlook"
+              >
+                Outlook
+              </button>
+            </div>
+          </div>
+          <p
+            class="contact-quick__hint"
+            id="contact-email-hint"
+            role="status"
+            aria-live="polite"
+          ></p>
         </div>
-        <div class="col-md-8" data-aos="fade-up"></div>
+
+        <div class="col-md-12 contact-details" data-aos="fade-up">
+          <div class="contact-details__item">
+            <span class="contact-details__k">Phone</span>
+            <a href="tel:+14167168877">+1 416 716 8877</a>
+          </div>
+          <div class="contact-details__item">
+            <span class="contact-details__k">Email</span>
+            <a href="mailto:kelvinyu92@gmail.com">kelvinyu92@gmail.com</a>
+          </div>
+          <div class="contact-details__item contact-details__item--socials">
+            <span class="contact-details__k">Socials</span>
+            <ul class="social">
+              <li>
+                <a href="https://github.com/kelvin-u" aria-label="GitHub"
+                  ><i class="ion-social-github"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/kelvin-u/"
+                  aria-label="LinkedIn"
+                  ><i class="ion-social-linkedin"></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/kelvinyu/"
+                  aria-label="Instagram"
+                  ><i class="ion-social-instagram"></i
+                ></a>
+              </li>
+              <li>
+                <a href="Kelvin Yu Resume Updated.pdf" aria-label="Resume"
+                  ><i class="ion-android-document"></i
+                ></a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
