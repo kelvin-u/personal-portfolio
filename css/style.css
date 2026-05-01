@@ -1459,7 +1459,7 @@ a.timeline-card:hover {
 @media (max-width: 500px) {
   h1 {
     font-family: "Playfair Display", serif;
-    font-size: 50px;
+    font-size: 100px;
     line-height: 50px;
   }
   .hero-copy {
@@ -1477,19 +1477,20 @@ a.timeline-card:hover {
   }
   .hero-typed-line {
     min-height: 58px;
+    white-space: nowrap;
   }
   .hero-char {
-    font-size: 52px;
+    font-size: clamp(40px, 9.5vw, 52px);
   }
   .hero-name-plain {
-    font-size: 52px;
+    font-size: clamp(40px, 9.5vw, 52px);
   }
   .hero-type-cursor {
-    font-size: 52px;
+    font-size: clamp(40px, 9.5vw, 52px);
   }
   #home,
   .disply-table {
-    height: 600px;
+    height: 100vh;
   }
   .about-copy h1 {
     margin-bottom: 20px;
@@ -1533,37 +1534,59 @@ a.timeline-card:hover {
   }
 }
 
-@media (max-width: 520px) {
-  nav li {
-    margin: 4px;
+@media (max-width: 592px) {
+  header {
+    height: auto;
   }
+
+  nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(84px, 1fr));
+    justify-content: stretch;
+    align-items: center;
+    width: min(330px, 100%);
+    margin: 0 auto;
+    column-gap: 22px;
+    row-gap: 6px;
+    padding: 12px 18px;
+  }
+
+  nav li {
+    margin: 0;
+    text-align: center;
+  }
+
   nav li a {
     font-size: 11px;
+    display: block;
+  }
+
+  nav li:nth-child(3n + 1) {
+    text-align: left;
+  }
+
+  nav li:nth-child(3n + 2) {
+    text-align: center;
+  }
+
+  nav li:nth-child(3n) {
+    text-align: right;
   }
 }
 
 @media (max-width: 440px) {
-  nav li {
-    margin: 4px;
-  }
   nav li a {
     font-size: 9px;
   }
 }
 
 @media (max-width: 390px) {
-  nav li {
-    margin: 2.5px;
-  }
   nav li a {
     font-size: 8.5px;
   }
 }
 
 @media (max-width: 365px) {
-  nav li {
-    margin: 1px;
-  }
   nav li a {
     font-size: 7.3px;
   }
