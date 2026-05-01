@@ -495,6 +495,13 @@ $(document).ready(function () {
     return { gmailCompose: gmailCompose, outlookCompose: outlookCompose };
   };
 
+  var trackAnalyticsEvent = function (eventName, eventParams) {
+    if (typeof window.gtag !== "function") {
+      return;
+    }
+    window.gtag("event", eventName, eventParams || {});
+  };
+
   var readTopicOrHint = function () {
     var topic = (contactEmailTopic.value || "").trim();
     if (!topic) {
@@ -523,6 +530,10 @@ $(document).ready(function () {
       if (!topic) {
         return;
       }
+      trackAnalyticsEvent("contact_click", {
+        contact_method: "gmail",
+        contact_topic: topic,
+      });
       var subject = "[Portfolio] " + topic,
         body = "Hi Kelvin,\n\n",
         urls = buildWebComposeUrls(contactRecipient, subject, body);
@@ -534,12 +545,35 @@ $(document).ready(function () {
       if (!topic) {
         return;
       }
+      trackAnalyticsEvent("contact_click", {
+        contact_method: "outlook",
+        contact_topic: topic,
+      });
       var subject = "[Portfolio] " + topic,
         body = "Hi Kelvin,\n\n",
         urls = buildWebComposeUrls(contactRecipient, subject, body);
       window.open(urls.outlookCompose, "_blank");
     });
   }
+
+  var addTrackedLinkClicks = function (selector, eventName, targetName) {
+    document.querySelectorAll(selector).forEach(function (linkEl) {
+      linkEl.addEventListener("click", function () {
+        trackAnalyticsEvent(eventName, {
+          click_target: targetName,
+          link_url: linkEl.getAttribute("href") || "",
+        });
+      });
+    });
+  };
+
+  addTrackedLinkClicks('a[href*="github.com"]', "external_link_click", "github");
+  addTrackedLinkClicks(
+    'a[href*="linkedin.com"]',
+    "external_link_click",
+    "linkedin",
+  );
+  addTrackedLinkClicks('a[href$=".pdf"]', "external_link_click", "resume");
 
   // scroll menu
   var sections = $(".section"),
