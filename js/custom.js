@@ -83,19 +83,48 @@ $(document).ready(function () {
       skillNodes = Array.prototype.slice.call(
         skillsGlobe.querySelectorAll(".skill-node"),
       ),
-      globeRotationX = -0.18,
-      globeRotationY = 0.4,
-      targetRotationX = globeRotationX,
-      targetRotationY = globeRotationY,
       autoRotateSpeed = 0.0007,
       isDraggingGlobe = false,
       lastGlobeX = 0,
       lastGlobeY = 0,
       lastInteraction = 0,
-      dragVelocityX = 0,
-      dragVelocityY = 0,
-      dragSensitivity = 0.014,
-      inertiaDecay = 0.94;
+      dragVelocityPitch = 0,
+      dragVelocityYaw = 0,
+      dragSensitivity = 0.005,
+      inertiaDecay = 0.96,
+      // Rotation queued from input, consumed a fraction per frame (easing).
+      pendingPitch = 0,
+      pendingYaw = 0;
+
+    // Trackball orientation: drag increments rotate about the *screen* axes
+    // and accumulate into a matrix, so dragging always follows the cursor no
+    // matter how far the globe has been rotated. (Euler angles would make
+    // horizontal drag reverse once the globe is tilted past a pole, which is
+    // why rotation used to feel wrong / need clamping.)
+    var viewRotationMatrix = function (pitch, yaw) {
+      var sp = Math.sin(pitch),
+        cp = Math.cos(pitch),
+        sy = Math.sin(yaw),
+        cy = Math.cos(yaw);
+      // Rx(pitch) * Ry(yaw), row-major.
+      return [cy, 0, sy, sp * sy, cp, -sp * cy, -cp * sy, sp, cp * cy];
+    };
+
+    var multiplyOrientations = function (a, b) {
+      var out = [];
+      for (var row = 0; row < 3; row++) {
+        for (var col = 0; col < 3; col++) {
+          out[row * 3 + col] =
+            a[row * 3] * b[col] +
+            a[row * 3 + 1] * b[3 + col] +
+            a[row * 3 + 2] * b[6 + col];
+        }
+      }
+      return out;
+    };
+
+    // Same starting view as the old Euler setup (slight tilt + turn).
+    var globeOrientation = viewRotationMatrix(-0.18, -0.4);
 
     var fibonacciSphere = function (count) {
       var points = [],
@@ -133,15 +162,40 @@ $(document).ready(function () {
     var buildIcosphere = function (subdivisions) {
       var phi = (1 + Math.sqrt(5)) / 2,
         baseVerts = [
-          [-1, phi, 0], [1, phi, 0], [-1, -phi, 0], [1, -phi, 0],
-          [0, -1, phi], [0, 1, phi], [0, -1, -phi], [0, 1, -phi],
-          [phi, 0, -1], [phi, 0, 1], [-phi, 0, -1], [-phi, 0, 1],
+          [-1, phi, 0],
+          [1, phi, 0],
+          [-1, -phi, 0],
+          [1, -phi, 0],
+          [0, -1, phi],
+          [0, 1, phi],
+          [0, -1, -phi],
+          [0, 1, -phi],
+          [phi, 0, -1],
+          [phi, 0, 1],
+          [-phi, 0, -1],
+          [-phi, 0, 1],
         ],
         baseFaces = [
-          [0, 11, 5], [0, 5, 1], [0, 1, 7], [0, 7, 10], [0, 10, 11],
-          [1, 5, 9], [5, 11, 4], [11, 10, 2], [10, 7, 6], [7, 1, 8],
-          [3, 9, 4], [3, 4, 2], [3, 2, 6], [3, 6, 8], [3, 8, 9],
-          [4, 9, 5], [2, 4, 11], [6, 2, 10], [8, 6, 7], [9, 8, 1],
+          [0, 11, 5],
+          [0, 5, 1],
+          [0, 1, 7],
+          [0, 7, 10],
+          [0, 10, 11],
+          [1, 5, 9],
+          [5, 11, 4],
+          [11, 10, 2],
+          [10, 7, 6],
+          [7, 1, 8],
+          [3, 9, 4],
+          [3, 4, 2],
+          [3, 2, 6],
+          [3, 6, 8],
+          [3, 8, 9],
+          [4, 9, 5],
+          [2, 4, 11],
+          [6, 2, 10],
+          [8, 6, 7],
+          [9, 8, 1],
         ],
         verts = [],
         vertMap = {},
@@ -214,25 +268,20 @@ $(document).ready(function () {
       return el;
     });
 
-    var rotatePoint = function (p, sinX, cosX, sinY, cosY) {
-      var x = p.x * cosY - p.z * sinY,
-        z = p.x * sinY + p.z * cosY,
-        y = p.y * cosX - z * sinX;
-      z = p.y * sinX + z * cosX;
-      return { x: x, y: y, z: z };
+    var transformPoint = function (p) {
+      var m = globeOrientation;
+      return {
+        x: m[0] * p.x + m[1] * p.y + m[2] * p.z,
+        y: m[3] * p.x + m[4] * p.y + m[5] * p.z,
+        z: m[6] * p.x + m[7] * p.y + m[8] * p.z,
+      };
     };
 
     var renderSkillsGlobe = function () {
-      var globeRadius = skillsGlobe.offsetWidth * 0.42,
-        sinX = Math.sin(globeRotationX),
-        cosX = Math.cos(globeRotationX),
-        sinY = Math.sin(globeRotationY),
-        cosY = Math.cos(globeRotationY);
+      var globeRadius = skillsGlobe.offsetWidth * 0.42;
 
       // Project geodesic mesh points
-      var projected = meshPoints.map(function (p) {
-        return rotatePoint(p, sinX, cosX, sinY, cosY);
-      });
+      var projected = meshPoints.map(transformPoint);
 
       // Update geodesic mesh lines (clean black wireframe on light bg).
       meshEdges.forEach(function (edge, i) {
@@ -240,7 +289,9 @@ $(document).ready(function () {
           pb = projected[edge.b],
           avgZ = (pa.z + pb.z) / 2,
           depth = (avgZ + 1) / 2,
-          opacity = 0.08 + depth * 0.42,
+          // Denser mesh needs stronger depth contrast to stay airy: quadratic
+          // falloff keeps the front crisp while the back fades to a whisper.
+          opacity = 0.04 + depth * depth * 0.42,
           line = lineEls[i];
         line.setAttribute("x1", pa.x.toFixed(4));
         line.setAttribute("y1", (-pa.y).toFixed(4));
@@ -253,7 +304,7 @@ $(document).ready(function () {
       // they sit on top of the globe rather than embedded in the mesh.
       var iconRadius = globeRadius * 1.18;
       nodePositions.forEach(function (position) {
-        var rotated = rotatePoint(position, sinX, cosX, sinY, cosY),
+        var rotated = transformPoint(position),
           depth = (rotated.z + 1) / 2,
           scale = 0.7 + depth * 0.55,
           // Smoothstep fade with a min-opacity floor so back-side icons stay
@@ -281,25 +332,32 @@ $(document).ready(function () {
     var animateSkillsGlobe = function () {
       var now = Date.now(),
         inertiaMagnitude =
-          Math.abs(dragVelocityX) + Math.abs(dragVelocityY);
+          Math.abs(dragVelocityPitch) + Math.abs(dragVelocityYaw);
 
       if (!isDraggingGlobe) {
         if (inertiaMagnitude > 0.0004) {
           // Glide on after release, decaying toward zero.
-          targetRotationX += dragVelocityX;
-          targetRotationY += dragVelocityY;
-          dragVelocityX *= inertiaDecay;
-          dragVelocityY *= inertiaDecay;
+          pendingPitch += dragVelocityPitch;
+          pendingYaw += dragVelocityYaw;
+          dragVelocityPitch *= inertiaDecay;
+          dragVelocityYaw *= inertiaDecay;
         } else if (now - lastInteraction > 1200) {
-          dragVelocityX = 0;
-          dragVelocityY = 0;
-          targetRotationY += autoRotateSpeed;
+          dragVelocityPitch = 0;
+          dragVelocityYaw = 0;
+          pendingYaw -= autoRotateSpeed;
         }
       }
 
-      // Snappier follow: 0.22 instead of 0.1 so cursor and globe stay in sync.
-      globeRotationX += (targetRotationX - globeRotationX) * 0.22;
-      globeRotationY += (targetRotationY - globeRotationY) * 0.22;
+      // Consume a fraction of the queued rotation each frame so the globe
+      // eases after the cursor instead of snapping (snappy 0.22 follow).
+      var stepPitch = pendingPitch * 0.22,
+        stepYaw = pendingYaw * 0.22;
+      pendingPitch -= stepPitch;
+      pendingYaw -= stepYaw;
+      globeOrientation = multiplyOrientations(
+        viewRotationMatrix(stepPitch, stepYaw),
+        globeOrientation,
+      );
       renderSkillsGlobe();
       window.requestAnimationFrame(animateSkillsGlobe);
     };
@@ -310,8 +368,8 @@ $(document).ready(function () {
       lastGlobeY = event.clientY;
       lastInteraction = Date.now();
       // Reset inertia so a new drag starts from a clean state.
-      dragVelocityX = 0;
-      dragVelocityY = 0;
+      dragVelocityPitch = 0;
+      dragVelocityYaw = 0;
       skillsGlobe.classList.add("is-dragging");
       skillsGlobe.setPointerCapture(event.pointerId);
     });
@@ -322,16 +380,18 @@ $(document).ready(function () {
       }
       var deltaX = event.clientX - lastGlobeX,
         deltaY = event.clientY - lastGlobeY,
-        rotY = deltaX * dragSensitivity,
-        rotX = deltaY * dragSensitivity;
+        // Screen-axis rotation: the globe's front face follows the cursor
+        // in both directions ("grab the surface" trackball feel).
+        yawStep = deltaX * dragSensitivity,
+        pitchStep = deltaY * dragSensitivity;
 
-      targetRotationY += rotY;
-      targetRotationX += rotX;
+      pendingYaw += yawStep;
+      pendingPitch += pitchStep;
 
       // Smoothed velocity (EMA) so the post-release glide reflects overall
       // drag direction rather than the last single frame's jitter.
-      dragVelocityY = dragVelocityY * 0.6 + rotY * 0.4;
-      dragVelocityX = dragVelocityX * 0.6 + rotX * 0.4;
+      dragVelocityYaw = dragVelocityYaw * 0.6 + yawStep * 0.4;
+      dragVelocityPitch = dragVelocityPitch * 0.6 + pitchStep * 0.4;
 
       lastGlobeX = event.clientX;
       lastGlobeY = event.clientY;
@@ -567,7 +627,11 @@ $(document).ready(function () {
     });
   };
 
-  addTrackedLinkClicks('a[href*="github.com"]', "external_link_click", "github");
+  addTrackedLinkClicks(
+    'a[href*="github.com"]',
+    "external_link_click",
+    "github",
+  );
   addTrackedLinkClicks(
     'a[href*="linkedin.com"]',
     "external_link_click",
